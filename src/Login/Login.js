@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import ButtonLogin from './ButtonLogin';
+// import ButtonLogin from './ButtonLogin';
 import './Login.css';
+import Navbar from './Navbar';
 
 class Login extends Component{
 
     render(){
         return(
-            <section className="container-login">
-                <form className="form-login">
+            <section>
+                <Navbar />
+                {/* <form className="form-login">
                     <div className="form-group">
                         <label for="input-email">Correo</label>
                         <input type="email" className="form-control" id="input-email" placeholder="Ingresa tu correo"/>
@@ -17,8 +19,8 @@ class Login extends Component{
                         <input type="password" className="form-control" id="input-pass" placeholder="Contraseña"/>
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
-                </form>
-                <ButtonLogin />
+                </form> */}
+                {/* <ButtonLogin /> */}
             </section>
         );
     }
