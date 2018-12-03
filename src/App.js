@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-// estyles 
-import './App.css';
+import Login from './Login/Login';
 
-import Favorites from './Home/Favorites'
+// import Favorites from './Home/Favorites'
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Favorites />
+        <Login/>
+        
       </div>
+      
     );
   }
 }
