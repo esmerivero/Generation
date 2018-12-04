@@ -30,14 +30,6 @@ class SimpleMap extends Component {
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom} 
           >
-          
-          <Marker
-          lat={19.5418}
-          lng={-99.23292} 
-          text={"Red Barn Stores"}
-          body={{color:"blue"}}
-          
-          />
 
           {getMarkers()}
 
