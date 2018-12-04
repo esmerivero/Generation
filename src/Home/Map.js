@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import GoogleMapReact from 'google-map-react';
 import Data from '../Data/store_directory';
+import Autocomplete from 'react-google-autocomplete';
+
 
 const Marker = () => (
     <div style={{color:"#d60093"}}> 
@@ -61,6 +63,13 @@ class Map extends Component {
     return (
       // Important! Always set the container height explicitly
       <div style={{ height: '100vh', width: '100%' }}>
+      <Autocomplete
+        style={{width: '90%'}}
+        onPlaceSelected={(place) => {
+          console.log(place);
+        }}
+        types={['(regions)']}
+        componentRestrictions={{country: "mx"}}/>
         <GoogleMapReact
           bootstrapURLKeys={{ key:'AIzaSyBYKb22rHjTAooeyz_Mrfg0ku35OhDMFyw' }}
           defaultCenter={this.props.center}

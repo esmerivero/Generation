@@ -13,6 +13,7 @@
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.3",
     "react-geolocated": "^2.4.0",
+    "react-google-autocomplete": "^1.0.18",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1"
   },
@@ -20,8 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
