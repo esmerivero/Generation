@@ -1,6 +1,16 @@
 import React, {Component} from 'react';
 import GoogleMapReact from 'google-map-react';
- 
+import Data from '../Data/store_directory';
+
+const Marker = ({ text }) => (<div>{text}</div>);
+
+const getMarkers = () => {
+    const markerArray = Data.map((element) => {
+        return (<Marker lat={element.Coordinates.lat} lng={element.Coordinates.lng} text={element.Name} />)
+    })
+    return markerArray;
+}
+
 class SimpleMap extends Component {
   static defaultProps = {
     center: {
@@ -8,8 +18,9 @@ class SimpleMap extends Component {
         lng: -99.13
     },
     zoom: 11
+    
   };
- 
+
   render() {
     return (
       // Important! Always set the container height explicitly
@@ -17,10 +28,22 @@ class SimpleMap extends Component {
         <GoogleMapReact
           bootstrapURLKeys={{ key:'AIzaSyBYKb22rHjTAooeyz_Mrfg0ku35OhDMFyw' }}
           defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
-        >
+          defaultZoom={this.props.zoom} 
+          >
+          
+          <Marker
+          lat={19.5418}
+          lng={-99.23292} 
+          text={"Red Barn Stores"}
+          body={{color:"blue"}}
+          
+          />
+
+          {getMarkers()}
+
         </GoogleMapReact>
       </div>
+
     );
   }
 }
