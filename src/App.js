@@ -3,6 +3,7 @@ import Login from './Login/Login';
 // import Mapa from './Home/Map';
 // import Favorites from './Home/Favorites';
 
+
 class App extends Component {
   render() {
     return (
@@ -10,6 +11,7 @@ class App extends Component {
         <Login />
         {/* <Mapa />
         <Favorites /> */}
+
       </div>
       
     );
