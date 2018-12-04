@@ -1,0 +1,8 @@
+.back-img{
+    background-image: url("https://www.generation.org/wp-content/uploads/2014/11/homepage-full-photo.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
