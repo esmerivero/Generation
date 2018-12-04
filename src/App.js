@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Login from './Login/Login';
 
+// import Favorites from './Home/Favorites'
+import Search from './Home/Search'
+import Filter from './Home/FilterJobs'
+
 import Mapa from './Home/Map';
 import Favorites from './Home/Favorites'
 //import Search from './Home/Search'
@@ -10,7 +14,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Login />
+        <Login/>
+        <Search/>
+        <Filter/>
         <Mapa />
         <Favorites />
         <Home />
