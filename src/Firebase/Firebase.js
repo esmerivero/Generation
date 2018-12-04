@@ -7,7 +7,7 @@ const config = {
     projectId: "generation-f110f",
     storageBucket: "generation-f110f.appspot.com",
     messagingSenderId: "330788783755"
-};
+  };
 
 const ConfigFire = firebase.initializeApp(config);
 
