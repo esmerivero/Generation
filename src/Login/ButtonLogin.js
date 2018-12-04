@@ -13,7 +13,7 @@ class ButtonLogin extends Component{
     }
     render(){
         return(
-            <button onClick={this.handleLogin}>Inicia sesión</button>
+            <button onClick={this.handleLogin} type="submit" className="btn btn-primary">Inicia sesión</button>
         );
     }
 }
