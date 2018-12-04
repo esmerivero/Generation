@@ -39,7 +39,7 @@ class Filter extends Component {
         />
 
             <section>
-                <button type="button" class="btn btn-outline-primary">Buscar</button>
+                <button type="button" className="btn btn-outline-primary">Buscar</button>
 
             </section>
          </div>      
