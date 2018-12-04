@@ -12,11 +12,11 @@ const UserMarker = () => (
       <i className="fas fa-suitcase"></i>
   </div>);
 
-const FilterMarkers = () => (
-  <div style={{color:"red"}}> 
-      <i className="fas fa-suitcase"></i>
-  </div>
-);
+// const FilterMarkers = () => (
+//   <div style={{color:"red"}}> 
+//       <i className="fas fa-suitcase"></i>
+//   </div>
+// );
 
 const getFilter = (lat1,lon1,lat2,lon2) =>{
  const rad = function(x) {return x*Math.PI/180;}
@@ -27,17 +27,23 @@ const getFilter = (lat1,lon1,lat2,lon2) =>{
  const result = 2 * Math.atan2(Math.sqrt(calculation), Math.sqrt(1-calculation));
  const convert = Radio * result;
 
- console.log(convert.toFixed(2))
-
 return convert.toFixed(2); //Retorna tres decimales
 }
 
 const getMarkers = (props) => {
-    const markerArray = Data.map((element,i) => {
-        return (<Marker lat={element.Coordinates.lat} lng={element.Coordinates.lng} text={element.Name} key={i}/>)
-    })
-    markerArray.push(<UserMarker lat={props.coords.lat} lng={props.coords.lng} />)
-    return markerArray;
+
+  const dataFiltered = Data.filter((item) => {
+    if((getFilter(props.coords.lat, props.coords.lng, item.Coordinates.lat, item.Coordinates.lng)) <= 5 ){
+      return true
+    }
+    return false;
+  }); 
+
+  const markerArray = dataFiltered.map((element,i) => {
+      return (<Marker lat={element.Coordinates.lat} lng={element.Coordinates.lng} text={element.Name} key={i}/>)
+  })
+  markerArray.push(<UserMarker lat= {props.coords.lat} lng={props.coords.lng} />)
+  return markerArray;
 }
 class Map extends Component {
   static defaultProps = {
