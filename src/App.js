@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import Login from './Login/Login';
 
-// import Favorites from './Home/Favorites'
+import Mapa from './Home/Map';
+import Favorites from './Home/Favorites'
+//import Search from './Home/Search'
+import Home from './Home/Home'
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Login/>
-        
+        <Login />
+        <Mapa />
+        <Favorites />
+        <Home />
       </div>
       
     );
