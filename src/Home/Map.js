@@ -1,7 +1,15 @@
 import React, {Component} from 'react';
 import GoogleMapReact from 'google-map-react';
+import Data from '../Data/store_directory';
 
 const Marker = ({ text }) => (<div>{text}</div>);
+
+const getMarkers = () => {
+    const markerArray = Data.map((element) => {
+        return (<Marker lat={element.Coordinates.lat} lng={element.Coordinates.lng} text={element.Name} />)
+    })
+    return markerArray;
+}
 
 class SimpleMap extends Component {
   static defaultProps = {
@@ -13,9 +21,6 @@ class SimpleMap extends Component {
     
   };
 
-  
-
- 
   render() {
     return (
       // Important! Always set the container height explicitly
@@ -33,6 +38,8 @@ class SimpleMap extends Component {
           body={{color:"blue"}}
           
           />
+
+          {getMarkers()}
 
         </GoogleMapReact>
       </div>
