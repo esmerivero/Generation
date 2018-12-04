@@ -41,8 +41,6 @@ class Home extends Component{
     }
 
     render(){
-        console.log(this.state);
-        
         return(
             // <div>
             // <Search latitude={this.state.latitude} longitude={this.state.longitude} handleCurrentPosition={this.handleCurrentPosition}/>
