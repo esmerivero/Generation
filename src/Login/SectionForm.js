@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {ConfigFire} from '../Firebase/Firebase';
-import { withRouter } from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
 import './SectionForm.css';
 
 class SectionForm extends Component{
@@ -26,17 +26,22 @@ class SectionForm extends Component{
     }
 
     handleLogin(){
-        ConfigFire.auth().signInWithEmailAndPassword((this.state.email), (this.state.pass))
+        // .then(()=>{
+        //     this.props.history.replace('/home');    
+        // })
+        // esta wea no jala, no se qué le moví :'(
+        ConfigFire.auth().signInWithEmailAndPassword(this.state.email, this.state.pass)
         .then(
-            this.props.history.replace('/home')
+            this.props.history.push("/home")
         )
-        .catch(function(error) {
-            let errorCode = error.code;
-            let errorMessage = error.message;
-            alert(errorCode);
-            alert(errorMessage);
+        .catch((error) => {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log(errorCode);
+            console.log(errorMessage);
         });
-}
+    }
 
     render(){
         return(
@@ -45,12 +50,12 @@ class SectionForm extends Component{
                     <div className="form-group">
                         <label for="exampleInputEmail1">Correo</label>
                         <input type="email" className="form-control inputs" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Ingresa tu correo" value={this.state.email} onChange={this.handleChangeEmail}/>
+                        placeholder="Ingresa tu correo" value={this.state.email} onChange={this.handleChangeEmail} required/> 
                     </div>
                     <div className="form-group">
                         <label for="exampleInputPassword1">Contraseña</label>
                         <input type="password" className="form-control inputs" id="exampleInputPassword1" placeholder="Contraseña"
-                        value={this.state.pass} onChange={this.handleChangePass}/>
+                        value={this.state.pass} onChange={this.handleChangePass} required/>
                     </div>
                     <button onClick={this.handleLogin} type="submit" className="btn btn-primary">Inicia sesión</button>
                 </form>        
